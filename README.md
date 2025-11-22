@@ -22,13 +22,12 @@ export VAULT_TOKEN="s.xxxxxx"
 2. Edit or add VM files in `virtual_machines/`
 3. Apply changes
 ```bash
-export GITLAB_ACCESS_TOKEN=<YOUR-ACCESS-TOKEN>
-```
-```bash
 export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN>
 ```
 ```bash
-export TF_STATE_NAME=enpos-prod
+export GITLAB_ACCESS_TOKEN=$(vault kv get -field gitlab_access_token -address https://openbao.enpos.lan kv/terraform)$
+```
+```bash
 cd virtual_machines
 terraform init -backend-config="password=$GITLAB_ACCESS_TOKEN"
 ```
@@ -41,6 +40,19 @@ terraform plan
 After verifying the changes, you can apply them
 ```bash
 terraform apply
+```
+
+**Deleting virtual machines**
+Check if ressources for the VM exist
+```bash
+cd virtual_machines
+terraform state list
+```
+
+Destroy the ressources
+```bash
+./destroy.sh <vmname>
+rm <vmname>.tf
 ```
 
 4. Don't forget to push your changes

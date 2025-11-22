@@ -44,7 +44,7 @@ variable "gateway" {
 
 variable "dns_servers" {
   type    = list(string)
-  default = ["10.17.100.10", "10.27.100.11"]
+  default = ["10.17.100.1", "1.1.1.1"]
 }
 
 variable "dns_domain" {
@@ -96,4 +96,9 @@ variable "zone" {
 variable "storage_volume" {
   type    = string
   default = "VM"
+}
+
+variable "startup_order" {
+  type    = number
+  default = 0
 }

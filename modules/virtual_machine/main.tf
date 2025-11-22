@@ -5,7 +5,6 @@
 resource "proxmox_virtual_environment_vm" "vm" {
     name        = var.name
     vm_id        = var.vmid
-    stop_on_destroy = true
     node_name = var.node
 
     cpu {
@@ -20,7 +19,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
     disk {
         datastore_id = var.storage_volume
-        file_id = "ISO:iso/${var.image}"
+        file_id = "ISO:iso/${var.image}.img"
         size = var.disk_size
         interface = "scsi0"
     }
@@ -56,6 +55,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
     }
 
     keyboard_layout = "fr"
+
+    startup {
+        order = var.startup_order
+    }
 }
 
 # NetBox resources
