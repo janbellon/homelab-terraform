@@ -25,6 +25,7 @@ locals {
   proxmox_api_token_id  = lookup(data.vault_generic_secret.terraform_secrets.data, "proxmox_api_key_id", "")
   proxmox_api_token     = lookup(data.vault_generic_secret.terraform_secrets.data, "proxmox_api_key", "")
   netbox_api_token      = lookup(data.vault_generic_secret.terraform_secrets.data, "netbox_api_key", "")
+  ssh_private_key       = lookup(data.vault_generic_secret.terraform_secrets.data, "ssh_privkey", "")
 }
 
 # Proxmox provider uses token read from Vault
@@ -40,7 +41,7 @@ provider "proxmox" {
   ssh {
     agent = true
     username = "root"
-    private_key = file("../id_terraform")
+    private_key = var.ssh_private_key
   }
 }
 

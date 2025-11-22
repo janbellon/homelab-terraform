@@ -21,18 +21,12 @@ export VAULT_TOKEN="s.xxxxxx"
 1. Clone the repository
 2. Edit or add VM files in `virtual_machines/`
 3. Apply changes
-
-Option 1: Git push
-```bash
-git add .
-git commit -m "<Changes>"
-git push origin dev # Then create a merge request
-```
-
-Option 2: Run terraform locally
 ```bash
 export GITLAB_ACCESS_TOKEN=<YOUR-ACCESS-TOKEN>
+```
+```bash
 export TF_STATE_NAME=enpos-prod
+cd virtual_machines
 terraform init \
     -backend-config="address=https://gitlab.enpos.fr/api/v4/projects/37/terraform/state/$TF_STATE_NAME" \
     -backend-config="lock_address=https://gitlab.enpos.fr/api/v4/projects/37/terraform/state/$TF_STATE_NAME/lock" \
@@ -44,7 +38,18 @@ terraform init \
     -backend-config="retry_wait_min=5"
 
 terraform plan
+```
+
+After verifying the changes, you can apply them
+```bash
 terraform apply
+```
+
+4. Don't forget to push your changes
+```bash
+git add .
+git commit -m "<Changes>"
+git push origin main
 ```
 
 
