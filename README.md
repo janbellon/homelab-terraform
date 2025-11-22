@@ -25,6 +25,9 @@ export VAULT_TOKEN="s.xxxxxx"
 export GITLAB_ACCESS_TOKEN=<YOUR-ACCESS-TOKEN>
 ```
 ```bash
+export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN>
+```
+```bash
 export TF_STATE_NAME=enpos-prod
 cd virtual_machines
 terraform init \

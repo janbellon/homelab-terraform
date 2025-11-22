@@ -9,3 +9,7 @@ path "kv/data/terraform" {
 path "auth/token/create" {
   capabilities = ["create", "update", "read"]
 }
+
+path "auth/token/lookup-self" {
+  capabilities = ["read"]
+}
