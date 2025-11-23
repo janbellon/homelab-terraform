@@ -44,7 +44,7 @@ variable "gateway" {
 
 variable "dns_servers" {
   type    = list(string)
-  default = ["10.17.100.1", "1.1.1.1"]
+  default = ["10.27.100.1", "1.1.1.1"]
 }
 
 variable "dns_domain" {

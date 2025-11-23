@@ -1,31 +1,20 @@
-# terraform-copilot
-
-Terraform repo scaffold to provision VMs on Proxmox, register them in NetBox and store secrets in Vault.
-
-**Overview**
-- `modules/virtual_machine` - module that creates a VM from a Proxmox template (Cloud-Init), generates a random cloud-init password, writes it to Vault, and creates corresponding NetBox objects.
-- `virtual_machines/*.tf` - one file per VM; each file instantiates the `virtual_machine` module with VM-specific variables.
-
-**Secrets / Tokens**
-- Proxmox and NetBox tokens are read from Vault at:
-  - `kv/proxmox/api_keys -> data["terraform"]`
-  - `kv/netbox/api_keys -> data["terraform"]`
-- Per-VM cloud-init passwords are written to Vault at `kv/proxmox/virtual_machines/<vmname>/user_password`.
-- Provide the Vault token to Terraform via environment variable `TF_VAR_vault_token` (or set it in a CI secret). Example:
-
-```bash
-export VAULT_TOKEN="s.xxxxxx"
-```
+# Enpos Terraform Repository
 
 **Quick start**
 1. Clone the repository
+```bash
+git clone https://gitlab.enpos.fr/enpos/admin/terraform
+cd terraform
+```
 2. Edit or add VM files in `virtual_machines/`
 3. Apply changes
 ```bash
 export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN>
 ```
+Get THe Gitlab Access Token stored in vault (should output something like `glpat-XX...`)
 ```bash
-export GITLAB_ACCESS_TOKEN=$(vault kv get -field gitlab_access_token -address https://openbao.enpos.lan kv/terraform)$
+export GITLAB_ACCESS_TOKEN=$(vault kv get -field gitlab_access_token -address https://openbao.enpos.lan kv/terraform)
+echo ${GITLAB_TOKEN:0:8}...
 ```
 ```bash
 cd virtual_machines
