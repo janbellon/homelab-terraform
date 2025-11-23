@@ -81,7 +81,7 @@ variable "ssh_keys" {
 
 variable "netbox_cluster" {
   type    = string
-  default = "pve-r821"
+  default = "pve_r821"
 }
 
 variable "netbox_role" {
