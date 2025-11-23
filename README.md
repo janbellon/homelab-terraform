@@ -3,7 +3,7 @@
 **Quick start**
 1. Clone the repository
 ```bash
-git clone https://gitlab.enpos.fr/enpos/admin/terraform
+git clone https://gitlab.enpos.fr/enpos/admin/terraform/proxmox
 cd terraform
 ```
 2. Edit or add VM files in `virtual_machines/`
