@@ -9,7 +9,7 @@ cd terraform
 2. Edit or add VM files in `virtual_machines/`
 3. Apply changes
 ```bash
-export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN>
+export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN> # Stored in Bitwarden
 ```
 Get THe Gitlab Access Token stored in vault (should output something like `glpat-XX...`)
 ```bash
