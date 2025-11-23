@@ -50,3 +50,13 @@ git add .
 git commit -m "<Changes>"
 git push origin main
 ```
+
+**Setting up the Terraform token on Vault/OpenBao**
+
+```bash
+export VAULT_TOKEN=s.yourtoken
+export VAULT_ADDR=https://openbao.enpos.lan
+vault login s.yourtoken
+vault policy write terraform terraform-policy.hcl
+vault token create -policy="terraform" -ttl=8760
+```
