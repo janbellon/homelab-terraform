@@ -3,7 +3,7 @@
 # stores it in Vault, and creates NetBox objects.
 
 resource "proxmox_virtual_environment_vm" "vm" {
-    name        = var.name
+    name        = "tf-${var.name}"
     vm_id        = var.vmid
     node_name = var.node
 

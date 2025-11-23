@@ -6,6 +6,10 @@
 git clone https://gitlab.enpos.fr/enpos/admin/terraform/proxmox
 cd terraform
 ```
+If you have already cloned the repository, you can pull the latest changes
+```bash
+git pull origin main
+```
 2. Edit or add VM files in `virtual_machines/`
 3. Apply changes
 ```bash
@@ -14,8 +18,10 @@ export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN> # Stored in Bitwarden
 Get THe Gitlab Access Token stored in vault (should output something like `glpat-XX...`)
 ```bash
 export GITLAB_ACCESS_TOKEN=$(vault kv get -field gitlab_access_token -address https://openbao.enpos.lan kv/terraform)
-echo ${GITLAB_TOKEN:0:8}...
+echo ${GITLAB_ACCESS_TOKEN:0:8}...
 ```
+
+If running for the first time...
 ```bash
 cd virtual_machines
 terraform init -backend-config="password=$GITLAB_ACCESS_TOKEN"
