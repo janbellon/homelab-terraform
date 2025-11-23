@@ -1,14 +1,15 @@
-module "terraform-test" {
+module "dns2" {
     source = "../modules/virtual_machine"
 
     #------ Global VM informations ------#
 
-    name            = "terraform-test"
-    vmid            = 100126
+    name            = "dns2"
+    vmid            = 100011
     image           = "ubuntu-24.04"
-    netbox_role     = "authentik"
 
-    tags            = ["prod", "ssl"]
+    netbox_role     = "coredns"
+
+    tags            = ["prod"]
 
     # node            = "pve-r821"
     # netbox_cluster  = "pve-r821"
@@ -17,15 +18,15 @@ module "terraform-test" {
 
     #------ Hardware ------#
 
-    cores       = 4
-    memory      = 8192  # In MB
+    cores       = 2
+    memory      = 2048  # In MB
     disk_size   = 10    # In GB
 
     # storage_volume = "VM"
 
     #------ Network ------#
 
-    ip          = "10.27.100.126"
+    ip          = "10.27.100.11"
 
     # gateway     = "10.27.100.254"
     # netmask     = "23"

@@ -75,7 +75,7 @@ variable "cloud_user" {
 variable "ssh_keys" {
   type    = list(string)
   default = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw"
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw=="
   ]
 }
 
