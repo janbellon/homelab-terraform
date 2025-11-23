@@ -32,37 +32,21 @@ terraform apply
 ```
 
 **Deleting virtual machines**
-Check if ressources for the VM exist
+1. Check if ressources for the VM exist
 ```bash
 cd virtual_machines
 terraform state list
 ```
 
-Destroy the ressources
+2. Destroy the ressources
 ```bash
 ./destroy.sh <vmname>
 rm <vmname>.tf
 ```
 
-4. Don't forget to push your changes
+After finishing, dont forget to push your changes.
 ```bash
 git add .
 git commit -m "<Changes>"
 git push origin main
-```
-
-
-
-**Notes**
-- Provider resource names in the NetBox provider may need small adjustments depending on the provider version; comments in module point to where to adapt.
-- This repo is a scaffold — test in a non-production environment first.
-
-**Setting up the token on Vault/OpenBao**
-
-```bash
-export VAULT_TOKEN=s.yourtoken
-export VAULT_ADDR=https://openbao.enpos.lan
-vault login s.yourtoken
-vault policy write terraform terraform-policy.hcl
-vault token create -policy="terraform" -ttl=8760
 ```
