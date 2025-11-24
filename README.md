@@ -10,7 +10,7 @@ If you have already cloned the repository, you can pull the latest changes
 ```bash
 git pull origin main
 ```
-2. Edit or add VM files in `virtual_machines/`
+2. Edit, delete or add VMs to `virtual_machines.yaml`
 3. Apply changes
 ```bash
 export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN> # Stored in Bitwarden
@@ -23,7 +23,6 @@ echo ${GITLAB_ACCESS_TOKEN:0:8}...
 
 If running for the first time...
 ```bash
-cd virtual_machines
 terraform init -backend-config="password=$GITLAB_ACCESS_TOKEN"
 ```
 
@@ -37,26 +36,6 @@ After verifying the changes, you can apply them
 terraform apply
 ```
 
-**Deleting virtual machines**
-1. Check if ressources for the VM exist
-```bash
-cd virtual_machines
-terraform state list
-```
-
-2. Destroy the ressources
-```bash
-./destroy.sh <vmname>
-rm <vmname>.tf
-```
-
-After finishing, dont forget to push your changes.
-```bash
-git add .
-git commit -m "<Changes>"
-git push origin main
-```
-
 **Setting up the Terraform token on Vault/OpenBao**
 
 ```bash
@@ -66,3 +45,15 @@ vault login s.yourtoken
 vault policy write terraform terraform-policy.hcl
 vault token create -policy="terraform" -ttl=8760
 ```
+
+**More Informations**
+Netbox roles map
+- 1 : authentik
+- 2 : kea_dhcp
+- 3 : coredns
+- 4 : postfix
+- 5 : openvpn
+- 6 : freeradius
+- 7 : asterisk
+- 8 : step_ca
+- 9 : generic (default)

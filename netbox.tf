@@ -1,0 +1,26 @@
+resource "netbox_virtual_machine" "nb_vm" {
+    for_each = local.vm_map
+
+    name = "${each.value.name}.${each.value.zone}"
+    cluster_id = each.value.netbox_cluster
+    role_id = each.value.role
+    # `role`, `platform`, `comments` etc. may be provider-specific fields
+    # Add tags
+    tags = each.value.tags
+}
+
+resource "netbox_interface" "vm_int" {
+    for_each = local.vm_map
+
+    name               = "eth0"
+    virtual_machine_id = netbox_virtual_machine.nb_vm[each.key].id
+}
+
+resource "netbox_ip_address" "vm_ip" {
+    for_each = local.vm_map
+
+    ip_address = format("%s/%s", each.value.ip, each.value.netmask)
+    status = "active"
+    virtual_machine_interface_id = netbox_interface.vm_int[each.key].id
+    # Optionally set `status`, `description`, or assign to an interface after creating VM record.
+}
