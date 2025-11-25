@@ -3,7 +3,7 @@
 **Quick start**
 1. Clone the repository
 ```bash
-git clone https://gitlab.enpos.fr/enpos/admin/terraform/proxmox
+git clone https://gitlab.enpos.fr/enpos/admin/terraform/proxmox terraform
 cd terraform
 ```
 If you have already cloned the repository, you can pull the latest changes
