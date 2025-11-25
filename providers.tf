@@ -3,7 +3,7 @@
 
 variable "vault_addr" {
   type    = string
-  default = "https://openbao.enpos.lan"
+  default = "https://vault.enpos.lan"
 }
 
 variable "vault_token" {

@@ -41,13 +41,24 @@ virtual_machines:
   - name: terraform-code
     vmid: 100127
     image: ubuntu-24.04
-    role: 13
+    role: 9
     tags:
       - ssl
     cores: 4
     memory: 4096
     disk_size: 10
     ip: 10.27.100.127
+
+  - name: ansible-code
+    vmid: 100128
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - ssl
+    cores: 4
+    memory: 4096
+    disk_size: 10
+    ip: 10.27.100.128
 
 ############### SANDBOX - LAB #################
 
@@ -155,7 +166,7 @@ virtual_machines:
   - name: asterisx-test
     vmid: 120105
     image: ubuntu-24.04
-    role: 12
+    role: 9
     tags:
       - lab
     cores: 2
@@ -172,7 +183,7 @@ virtual_machines:
   - name: portainer-test
     vmid: 120106
     image: ubuntu-24.04
-    role: 12
+    role: 9
     tags:
       - lab
     cores: 2
