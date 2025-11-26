@@ -12,3 +12,4 @@ secrets.auto.tfvars
 terraform.tfvars
 id_terraform
 id_terraform.pub
+.envrc

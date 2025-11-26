@@ -7,6 +7,11 @@ resource "netbox_virtual_machine" "nb_vm" {
     # `role`, `platform`, `comments` etc. may be provider-specific fields
     # Add tags
     tags = each.value.tags
+
+
+    disk_size_mb = each.value.disk_size * 1024
+    memory_mb    = each.value.memory
+    vcpus        = each.value.cores
 }
 
 resource "netbox_interface" "vm_int" {

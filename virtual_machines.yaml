@@ -4,7 +4,7 @@ virtual_machines:
   - name: dns1
     vmid: 100010
     image: ubuntu-24.04
-    role: 3
+    role: 12
     tags:
       - prod
       - dns
@@ -16,7 +16,7 @@ virtual_machines:
   - name: dns2
     vmid: 100011
     image: ubuntu-24.04
-    role: 3
+    role: 12
     tags:
       - prod
       - dns
@@ -24,6 +24,18 @@ virtual_machines:
     memory: 2048
     disk_size: 10
     ip: 10.27.100.11
+
+  - name: acme
+    vmid: 100012
+    image: ubuntu-24.04
+    role: 8
+    tags:
+      - prod
+      - acme
+    cores: 2
+    memory: 2048
+    disk_size: 10
+    ip: 10.27.100.12
 
 ############### PREPROD ################
 
@@ -59,6 +71,17 @@ virtual_machines:
     memory: 4096
     disk_size: 10
     ip: 10.27.100.128
+
+  - name: pdns-admin
+    vmid: 100129
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - ssl
+    cores: 2
+    memory: 2048
+    disk_size: 10
+    ip: 10.27.100.129
 
 ############### SANDBOX - LAB #################
 
