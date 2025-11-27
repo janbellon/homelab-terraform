@@ -1,7 +1,7 @@
 resource "netbox_virtual_machine" "nb_vm" {
     for_each = local.vm_map
 
-    name = "${each.value.name}.${each.value.zone}"
+    name = "${each.value.hostname}.${each.value.zone}"
     cluster_id = each.value.netbox_cluster
     role_id = each.value.role
     # `role`, `platform`, `comments` etc. may be provider-specific fields

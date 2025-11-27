@@ -11,7 +11,7 @@ locals {
         gateway = "10.27.100.254"
         dns_servers = ["10.27.100.10", "10.27.100.11"]
         dns_domain = "enpos.lan"
-        zone = "enpos.lan"
+        zone = "lab.enpos.lan"
         netmask = "23"
         network_bridge = "vmbr100"
         storage_volume = "VM"

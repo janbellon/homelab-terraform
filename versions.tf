@@ -2,17 +2,20 @@ terraform {
   required_version = ">= 1.2.0"
   required_providers {
     proxmox = {
-      source = "bpg/proxmox"
+      source  = "bpg/proxmox"
       version = "0.87.0"
     }
     vault = {
       source  = "hashicorp/vault"
+      version = "5.5.0"
     }
     netbox = {
       source  = "rypti-org/netbox"
+      version = "5.0.0"
     }
-    random = {
-      source  = "hashicorp/random"
+    powerdns = {
+      source = "pan-net/powerdns"
+      version = "1.5.0"
     }
   }
 

@@ -6,6 +6,10 @@ path "kv/data/terraform" {
   capabilities = ["read"]
 }
 
+path "kv/data/powerdns" {
+  capabilities = ["read"]
+}
+
 path "auth/token/create" {
   capabilities = ["create", "update", "read"]
 }

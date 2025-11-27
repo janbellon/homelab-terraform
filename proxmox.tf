@@ -1,7 +1,7 @@
 resource "proxmox_virtual_environment_vm" "vm" {
     for_each = local.vm_map
 
-    name        = "tf-${each.value.name}"
+    name        = "tf-${each.value.hostname}.${each.value.zone}"
     vm_id       = each.value.vmid
     node_name   = each.value.node
 

@@ -1,11 +1,6 @@
 # Providers configuration
 # Vault token is provided via variable `vault_token` (from TF_VAR_vault_token env var)
 
-variable "vault_addr" {
-  type    = string
-  default = "https://vault.enpos.lan"
-}
-
 variable "vault_token" {
   type      = string
   sensitive = true
@@ -13,7 +8,7 @@ variable "vault_token" {
 }
 
 provider "vault" {
-  address = var.vault_addr
+  address = "https://vault.enpos.lan"
 }
 
 # Read Terraform secrets from Vault KV (assumes KV v2 mounted at kv/)
@@ -21,21 +16,20 @@ data "vault_generic_secret" "terraform_secrets" {
   path = "kv/terraform"
 }
 
+data "vault_generic_secret" "powerdns_secrets" {
+  path = "kv/powerdns"
+}
+
 locals {
   proxmox_api_token_id  = lookup(data.vault_generic_secret.terraform_secrets.data, "proxmox_api_key_id", "")
   proxmox_api_token     = lookup(data.vault_generic_secret.terraform_secrets.data, "proxmox_api_key", "")
   netbox_api_token      = lookup(data.vault_generic_secret.terraform_secrets.data, "netbox_api_key", "")
   ssh_private_key       = lookup(data.vault_generic_secret.terraform_secrets.data, "ssh_privkey", "")
-}
-
-# Proxmox provider uses token read from Vault
-variable "proxmox_url" {
-  type    = string
-  default = "https://pve.infra.enpos.lan:8006/"
+  powerdns_api_token    = lookup(data.vault_generic_secret.powerdns_secrets.data, "api_token", "")
 }
 
 provider "proxmox" {
-  endpoint   = var.proxmox_url
+  endpoint   = "https://pve.infra.enpos.lan:8006/"
   api_token = "${local.proxmox_api_token_id}=${local.proxmox_api_token }"
   insecure     = true
   ssh {
@@ -45,13 +39,12 @@ provider "proxmox" {
   }
 }
 
-# NetBox provider uses token read from Vault
-variable "netbox_url" {
-  type    = string
-  default = "https://netbox.enpos.lan"
+provider "netbox" {
+  server_url   = "https://netbox.enpos.lan"
+  api_token = local.netbox_api_token
 }
 
-provider "netbox" {
-  server_url   = var.netbox_url
-  api_token = local.netbox_api_token
+provider "powerdns" {
+  api_key = local.powerdns_api_token
+  server_url = "http://dns1.enpos.lan"
 }
