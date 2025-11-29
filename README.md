@@ -61,3 +61,4 @@ Netbox roles map
 - 11 : nginx
 - 12 : powerdns
 - 13 : vault
+- 14 : gitlab

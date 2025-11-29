@@ -42,6 +42,20 @@ virtual_machines:
     hostname: acme
     zone: infra.enpos.lan
 
+  - name: authentik
+    vmid: 100013
+    image: ubuntu-24.04
+    role: 1
+    tags:
+      - prod
+      - ssl
+    cores: 2
+    memory: 2048
+    disk_size: 10
+    ip: 10.27.100.13
+    hostname: auth
+    zone: infra.enpos.lan
+
 ############### PREPROD ################
 
   - name: vault-pprod
@@ -116,36 +130,6 @@ virtual_machines:
 
 ############### SANDBOX - LAB #################
 
-  - name: acme-test
-    vmid: 120100
-    image: ubuntu-24.04
-    role: 8
-    tags:
-      - lab
-      - ssl
-      - acme
-#   node: pve-r821
-#   netbox_cluster: 1
-#   startup_order: 0
-    cores: 2
-    memory: 2048
-    disk_size: 10
-#   storage_volume: VM
-    ip: 10.27.120.100
-    gateway: 10.27.120.254
-#   netmask: 23
-    network_bridge: vmbr120
-    hostname: acme
-    zone: jb.lab.enpos.lan
-#   dns_domain: enpos.lan
-#   dns_servers:
-#     - 10.27.100.10
-#     - 10.27.100.11
-#    ssh_keys:
-#      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
-#   cloud_user: root
-
-
   - name: outline-lab
     vmid: 120101
     image: ubuntu-24.04
@@ -180,44 +164,6 @@ virtual_machines:
     network_bridge: vmbr120
     zone: jb.lab.enpos.lan
     hostname: proxy
-    ssh_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
-
-  - name: pdns-test
-    vmid: 120103
-    image: ubuntu-24.04
-    role: 12
-    tags:
-      - lab
-      - ssl
-    cores: 2
-    memory: 2048
-    disk_size: 10
-    ip: 10.27.120.103
-    gateway: 10.27.120.254
-    network_bridge: vmbr120
-    zone: jb.lab.enpos.lan
-    hostname: pdns
-    ssh_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
-
-  - name: pdns-test-2
-    vmid: 120104
-    image: ubuntu-24.04
-    role: 12
-    tags:
-      - lab
-      - ssl
-    cores: 2
-    memory: 2048
-    disk_size: 10
-    ip: 10.27.120.104
-    gateway: 10.27.120.254
-    network_bridge: vmbr120
-    zone: jb.lab.enpos.lan
-    hostname: pdns2
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
@@ -292,6 +238,44 @@ virtual_machines:
     network_bridge: vmbr120
     zone: jb.lab.enpos.lan
     hostname: gitlab
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
+
+  - name: authentik-test
+    vmid: 120109
+    image: ubuntu-24.04
+    role: 1
+    tags:
+      - lab
+      - ssl
+    cores: 8
+    memory: 16384
+    disk_size: 20
+    ip: 10.27.120.109
+    gateway: 10.27.120.254
+    network_bridge: vmbr120
+    zone: jb.lab.enpos.lan
+    hostname: auth
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
+
+  - name: gitlab-test-ansible
+    vmid: 120110
+    image: ubuntu-24.04
+    role: 14
+    tags:
+      - lab
+      - ssl
+    cores: 8
+    memory: 16384
+    disk_size: 20
+    ip: 10.27.120.110
+    gateway: 10.27.120.254
+    network_bridge: vmbr120
+    zone: jb.lab.enpos.lan
+    hostname: gitlab-2
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
