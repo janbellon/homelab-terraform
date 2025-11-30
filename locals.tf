@@ -22,6 +22,7 @@ locals {
         startup_order = 0
         cpu_type = "x86-64-v2-AES"
         role = 9
+        started = true
     }
 
     vm_list = yamldecode(file("${path.module}/virtual_machines.yaml")).virtual_machines

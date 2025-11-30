@@ -20,9 +20,9 @@ terraform {
   }
 
   backend "http" { 
-    address        = "https://gitlab.enpos.fr/api/v4/projects/37/terraform/state/enpos-prod"
-    lock_address   = "https://gitlab.enpos.fr/api/v4/projects/37/terraform/state/enpos-prod/lock"
-    unlock_address = "https://gitlab.enpos.fr/api/v4/projects/37/terraform/state/enpos-prod/lock"
+    address        = "https://gitlab.enpos.fr/api/v4/projects/2/terraform/state/prod"
+    lock_address   = "https://gitlab.enpos.fr/api/v4/projects/2/terraform/state/prod/lock"
+    unlock_address = "https://gitlab.enpos.fr/api/v4/projects/2/terraform/state/prod/lock"
     username       = "terraform"
     lock_method    = "POST"
     unlock_method  = "DELETE"

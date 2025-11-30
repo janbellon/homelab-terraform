@@ -4,6 +4,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
     name        = "tf-${each.value.hostname}.${each.value.zone}"
     vm_id       = each.value.vmid
     node_name   = each.value.node
+    started     = each.value.started
 
     cpu {
         cores = each.value.cores
