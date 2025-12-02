@@ -62,3 +62,4 @@ Netbox roles map
 - 12 : powerdns
 - 13 : vault
 - 14 : gitlab
+- 15 : k8s
