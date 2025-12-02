@@ -40,9 +40,10 @@ provider "proxmox" {
 }
 
 provider "netbox" {
-  server_url   = "https://netbox.enpos.lan"
+  server_url   = "https://netbox.infra.enpos.lan"
   api_token = local.netbox_api_token
   allow_insecure_https = true
+  request_timeout = 20
 }
 
 provider "powerdns" {
