@@ -286,13 +286,72 @@ virtual_machines:
     zone: kube.enpos.lan
     network_bridge: vmbr70
 
+## K8S PROD ##
+
+  - name: p1n1
+    vmid: 70010
+    image: ubuntu-24.04
+    role: 15
+    tags:
+      - prod
+      - k8s_master
+    cores: 4
+    memory: 4096
+    disk_size: 20
+    ip: 10.27.70.10
+    gateway: 10.27.70.254
+    network_bridge: vmbr70
+    zone: kube.enpos.lan
+    hostname: p1n1
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
+
+  - name: p1n2
+    vmid: 70011
+    image: ubuntu-24.04
+    role: 15
+    tags:
+      - prod
+    cores: 4
+    memory: 4096
+    disk_size: 20
+    ip: 10.27.70.11
+    gateway: 10.27.70.254
+    network_bridge: vmbr70
+    zone: kube.enpos.lan
+    hostname: p1n2
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
+
+  - name: p1n3
+    vmid: 70012
+    image: ubuntu-24.04
+    role: 15
+    tags:
+      - prod
+    cores: 4
+    memory: 4096
+    disk_size: 20
+    ip: 10.27.70.12
+    gateway: 10.27.70.254
+    network_bridge: vmbr70
+    zone: kube.enpos.lan
+    hostname: p1n3
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYt5J+Qd7WY80XMBP/NQMzfEZqpu3V53Zm0fI7cWWY7Pjaqn3vG0VepU01KP/V6Qg6tdRZUgyKImrYMcFFxG5GREBmNqw6NnzYiZSw/Vut7CecqsoUvlkvU6fuKtMv1+onWn2o9W3+H1t6scBxOz2RT+tve7rBirtH43ObKs3FgViNLTO9ZS/evXno8vZ/fSP8liARL0ERH2WuPBsSe675/lAt/VowByoh2XNztsgKmkkGdEJzZdHsyr3ms9KLS9p9TCRwnJxwzxLph2ymM0L9Rf/BiuOg5sumkYqz5WJNdp+80RD1xazv5gp3koNxNGse1dBNhz25kbohIgbwMfWkyH7UaUJ9DrqXL3lvDaTyA0Hy0kBIiHrhYa1K/VqjxLic/gXEEiwp9A/g6zSWNDtjy6N0HgicmbhoxMeft0fX84eNFOTLx2kghCyV2w58bdwmHh26j553u91T6IbiR3eyRU+VJqrYLs+/GQUACbQIUrUKhBt5Coz9vDbsZSMib5GjpnAFAwHx0Cp0+AUXliPlSUz4UmZNf6trqHCW8DoJ39mscKLTo4r5WhnjxpkYhOjGUXu2LKNdqx3Of3ALfTCNPU4xY12PoDZ2Gxs7neOOckmyvW9f+qg7JkuPYsT1SgzHhB8J5dy5151zwl1VtO8YrzmDcNDhbN+uBYoUog2Wvw==
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjw7m9mIDGHYuq0QRK3/i0iaEQ5hQGkM5VWM1hFPPbw
+
+## K8S LAB 2 ##
+
   - name: l2n1
     vmid: 70030
     image: ubuntu-24.04
     role: 15
     tags:
       - lab
-      - root_master
+      - k8s_master
     cores: 4
     memory: 4096
     disk_size: 10
