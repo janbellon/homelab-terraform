@@ -27,5 +27,13 @@ resource "netbox_ip_address" "vm_ip" {
     ip_address = format("%s/%s", each.value.ip, each.value.netmask)
     status = "active"
     virtual_machine_interface_id = netbox_interface.vm_int[each.key].id
+    role = "vip"
+    dns_name = "${each.value.hostname}.${each.value.zone}"
     # Optionally set `status`, `description`, or assign to an interface after creating VM record.
+}
+
+resource "netbox_primary_ip" "vm_primary_ip" {
+  for_each = local.vm_map
+  ip_address_id      = netbox_ip_address.vm_ip[each.key].id
+  virtual_machine_id = netbox_virtual_machine.nb_vm[each.key].id
 }
