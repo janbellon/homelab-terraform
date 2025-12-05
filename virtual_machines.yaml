@@ -13,6 +13,9 @@ virtual_machines:
     ip: 10.27.100.10
     hostname: dns1
     zone: infra.enpos.lan
+    dns_servers:
+      - 1.1.1.1
+      - 8.8.8.8
 
   - name: dns2
     vmid: 100011
@@ -27,6 +30,9 @@ virtual_machines:
     ip: 10.27.100.11
     hostname: dns2
     zone: infra.enpos.lan
+    dns_servers:
+      - 1.1.1.1
+      - 8.8.8.8
 
   - name: acme
     vmid: 100012
@@ -171,6 +177,22 @@ virtual_machines:
     hostname: netbox
     zone: infra.enpos.lan
 
+  - name: coredns-forwarder
+    vmid: 100131
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - preprod
+    cores: 2
+    memory: 2048
+    disk_size: 10
+    ip: 10.27.100.131
+    hostname: coredns
+    zone: infra.enpos.lan
+    dns_servers:
+      - 1.1.1.1
+      - 8.8.8.8
+
 ############### SANDBOX - LAB #################
 
   - name: proxy
@@ -268,21 +290,19 @@ virtual_machines:
 
 ################### K8S #########################
 
-  - name: ignition
+  - name: kube-proxy
     vmid: 70001
     image: ubuntu-24.04
-    role: 9
+    role: 11
     tags:
       - ssl
-      - code-server
-      - web-static
     cores: 2
     memory: 2048
     disk_size: 20
     ip: 10.27.70.1
     netmask: 24
     gateway: 10.27.70.254
-    hostname: ignition
+    hostname: nginx
     zone: kube.enpos.lan
     network_bridge: vmbr70
 

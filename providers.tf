@@ -48,5 +48,5 @@ provider "netbox" {
 
 provider "powerdns" {
   api_key = local.powerdns_api_token
-  server_url = "http://dns2.enpos.lan"
+  server_url = "http://dns1.infra.enpos.lan"
 }

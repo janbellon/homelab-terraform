@@ -9,7 +9,7 @@ locals {
         disk_size = 16
         ip = "dhcp"
         gateway = "10.27.100.254"
-        dns_servers = ["10.27.100.10", "10.27.100.11"]
+        dns_servers = ["10.27.100.131"]
         dns_domain = "enpos.lan"
         zone = "lab.enpos.lan"
         netmask = "23"
