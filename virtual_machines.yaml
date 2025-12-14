@@ -1,0 +1,55 @@
+virtual_machines:
+
+## K8S PROD ##
+
+  - name: p1n1
+    vmid: 251010
+    image: ubuntu-24.04
+    role: 15
+    tags:
+      - prod
+      - k8s
+    cores: 4
+    memory: 4096
+    disk_size: 20
+    ip: 10.2.51.10
+    gateway: 10.2.51.1
+    network_bridge: vmbr251
+    zone: kube.nbl.lan
+    hostname: p1n1
+    startup_order: 1
+
+  - name: p1n2
+    vmid: 251011
+    image: ubuntu-24.04
+    role: 15
+    tags:
+      - prod
+      - k8s
+    cores: 4
+    memory: 4096
+    disk_size: 20
+    ip: 10.2.51.11
+    gateway: 10.2.51.1
+    network_bridge: vmbr251
+    zone: kube.nbl.lan
+    hostname: p1n2
+    startup_order: 1
+
+  - name: p1n3
+    vmid: 251012
+    image: ubuntu-24.04
+    role: 15
+    tags:
+      - prod
+      - k8s
+    cores: 4
+    memory: 4096
+    disk_size: 20
+    ip: 10.2.51.12
+    gateway: 10.2.51.12
+    network_bridge: vmbr251
+    zone: kube.nbl.lan
+    hostname: p1n3
+    startup_order: 1
+
