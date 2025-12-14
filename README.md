@@ -17,7 +17,7 @@ export VAULT_TOKEN=<TERRAFORM-VAULT-TOKEN> # Stored in Bitwarden
 ```
 Get THe Gitlab Access Token stored in vault (should output something like `glpat-XX...`)
 ```bash
-export GITLAB_ACCESS_TOKEN=$(vault kv get -field gitlab_access_token -address https://openbao.enpos.lan kv/terraform)
+export GITLAB_ACCESS_TOKEN=$(vault kv get -field gitlab_access_token -address https://vault.nobell.lan kv/terraform)
 echo ${GITLAB_ACCESS_TOKEN:0:8}...
 ```
 
@@ -40,7 +40,7 @@ terraform apply
 
 ```bash
 export VAULT_TOKEN=s.yourtoken
-export VAULT_ADDR=https://openbao.enpos.lan
+export VAULT_ADDR=https://vault.nobell.lan
 vault login s.yourtoken
 vault policy write terraform terraform-policy.hcl
 vault token create -policy="terraform" -ttl=8760
@@ -76,4 +76,3 @@ Available images
 - centos-10
 - almalinux-10
 - arch
-- 
