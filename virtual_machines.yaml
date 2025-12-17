@@ -1,5 +1,25 @@
 virtual_machines:
 
+## SRV PROD ##
+  - name: acme
+    vmid: 250055
+    image: ubuntu-24.04
+    role: 8
+    tags:
+      - prod
+    cores: 2
+    memory: 2048
+    disk_size: 20
+    ip: 10.2.50.55
+    ip6enabled: true
+    ip6: 2a01:e0a:5d7:a1a2:ab:cd::55
+    gateway: 10.2.50.1
+    gateway6: 2a01:e0a:5d7:a1a2::2
+    network_bridge: vmbr250
+    zone: srv.nbl.lan
+    hostname: acme
+    startup_order: 1
+
 ## K8S PROD ##
 
   - name: p1n1
@@ -9,6 +29,7 @@ virtual_machines:
     tags:
       - prod
       - k8s
+      - k8s_master
     cores: 4
     memory: 4096
     disk_size: 20
@@ -47,7 +68,7 @@ virtual_machines:
     memory: 4096
     disk_size: 20
     ip: 10.2.51.12
-    gateway: 10.2.51.12
+    gateway: 10.2.51.1
     network_bridge: vmbr251
     zone: kube.nbl.lan
     hostname: p1n3

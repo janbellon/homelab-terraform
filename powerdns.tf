@@ -7,6 +7,12 @@ resource "powerdns_record" "vm_domain_a" {
     records = ["${each.value.ip}"]
 }
 
+resource "powerdns_zone" "nobell" {
+  name        = "nobell.fr."
+  kind        = "Native"
+  nameservers = ["10.2.50.12."]
+}
+
 resource "powerdns_zone" "nbl" {
   name        = "nbl.lan."
   kind        = "Native"

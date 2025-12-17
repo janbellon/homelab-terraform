@@ -13,6 +13,8 @@ locals {
         dns_domain = "nbl.lan"
         zone = "srv.nbl.lan"
         netmask = "24"
+        netmask6 = "64"
+        ip6enabled = false
         network_bridge = "vmbr250"
         storage_volume = "vm-zfs1"
         cloud_user = "root"
@@ -24,6 +26,7 @@ locals {
         cpu_type = "x86-64-v2-AES"
         role = 9
         started = true
+        pool_id = "Jan"
     }
 
     vm_list = yamldecode(file("${path.module}/virtual_machines.yaml")).virtual_machines

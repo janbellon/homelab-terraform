@@ -39,6 +39,13 @@ resource "proxmox_virtual_environment_vm" "vm" {
                 address = "${each.value.ip}/${each.value.netmask}"
                 gateway = each.value.gateway
             }
+            dynamic "ipv6" {
+                for_each = each.value.ip6enabled ? [1] : []
+                content {
+                    address = "${each.value.ip6}/${each.value.netmask6}"
+                    gateway = each.value.gateway6
+                }
+            }
         }
 
         user_account {
@@ -61,4 +68,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
     startup {
         order = each.value.startup_order
     }
+}
+
+resource "proxmox_virtual_environment_pool_membership" "vm_membership" {
+    for_each = local.vm_map
+    pool_id  = each.value.pool_id
+    vm_id    = proxmox_virtual_environment_vm.vm[each.key].id
 }
