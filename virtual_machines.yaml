@@ -12,13 +12,33 @@ virtual_machines:
     disk_size: 20
     ip: 10.2.50.55
     ip6enabled: true
-    ip6: 2a01:e0a:5d7:a1a2:ab:cd::55
+    ip6: 2a01:e0a:5d7:a1a2:cafe::55
     gateway: 10.2.50.1
     gateway6: 2a01:e0a:5d7:a1a2::2
     network_bridge: vmbr250
     zone: srv.nbl.lan
     hostname: acme
-    startup_order: 1
+    startup_order: 2
+
+  - name: peertube
+    vmid: 250056
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - prod
+      - docker
+    cores: 4
+    memory: 8192
+    disk_size: 20
+    ip: 10.2.50.56
+    ip6enabled: true
+    ip6: 2a01:e0a:5d7:a1a2:cafe::56
+    gateway: 10.2.50.1
+    gateway6: 2a01:e0a:5d7:a1a2::2
+    network_bridge: vmbr250
+    zone: srv.nbl.lan
+    hostname: peertube
+    startup_order: 3
 
 ## K8S PROD ##
 

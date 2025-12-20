@@ -37,6 +37,11 @@ provider "proxmox" {
     agent = true
     username = "root"
     private_key = local.ssh_private_key
+    node {
+      name = "pve-r821"
+      address = "10.0.20.5"
+      port = 24522
+    }
   }
 }
 

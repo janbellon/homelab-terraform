@@ -48,7 +48,7 @@ vault token create -policy="terraform" -ttl=8760
 
 **More Informations**
 Netbox roles map
-- 1  : authentik
+- 1  : 
 - 2  : kea_dhcp
 - 3  : coredns
 - 4  : postfix
@@ -61,7 +61,7 @@ Netbox roles map
 - 11 : nginx
 - 12 : powerdns
 - 13 : vault
-- 14 : gitlab
+- 14 : 
 - 15 : k8s
 - 16 : grafana
 - 17 : smtp_relay
