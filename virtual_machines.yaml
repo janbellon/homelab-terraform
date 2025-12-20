@@ -27,9 +27,9 @@ virtual_machines:
     tags:
       - prod
       - docker
-    cores: 4
+    cores: 8
     memory: 8192
-    disk_size: 20
+    disk_size: 30
     ip: 10.2.50.56
     ip6enabled: true
     ip6: 2a01:e0a:5d7:a1a2:cafe::56
