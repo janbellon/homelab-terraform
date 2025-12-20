@@ -57,7 +57,7 @@ Netbox roles map
 - 7  : asterisk
 - 8  : step_ca
 - 9  : generic (default)
-- 10 : outline
+- 10 : 
 - 11 : nginx
 - 12 : powerdns
 - 13 : vault
