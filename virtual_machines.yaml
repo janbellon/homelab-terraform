@@ -94,3 +94,21 @@ virtual_machines:
     hostname: p1n3
     startup_order: 1
 
+############# SANDBOX ##############
+
+  - name: linux-tp-ubnt
+    vmid: 252050
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - lab
+    cores: 2
+    memory: 2048
+    disk_size: 20
+    ip: 10.2.52.50
+    ip6enabled: false
+    gateway: 10.2.52.1
+    network_bridge: vmbr252
+    zone: lab.nbl.lan
+    hostname: linux-tp-ubnt
+    startup_order: 7
