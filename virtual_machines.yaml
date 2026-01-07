@@ -112,3 +112,57 @@ virtual_machines:
     zone: lab.nbl.lan
     hostname: linux-tp-ubnt
     startup_order: 7
+
+  - name: cs-rapport-alternance
+    vmid: 252121
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - lab
+      - code_server
+    cores: 2
+    memory: 2048
+    disk_size: 20
+    ip: 10.2.52.121
+    ip6enabled: false
+    gateway: 10.2.52.1
+    network_bridge: vmbr252
+    zone: lab.nbl.lan
+    hostname: cs-rapport
+    startup_order: 7
+
+  - name: codeserver-kubernetes
+    vmid: 252122
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - lab
+      - code_server
+    cores: 2
+    memory: 2048
+    disk_size: 20
+    ip: 10.2.52.122
+    ip6enabled: false
+    gateway: 10.2.52.1
+    network_bridge: vmbr252
+    zone: lab.nbl.lan
+    hostname: cs-kube
+    startup_order: 7
+
+  - name: codeserver-ece
+    vmid: 252123
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - lab
+      - code_server
+    cores: 2
+    memory: 2048
+    disk_size: 20
+    ip: 10.2.52.123
+    ip6enabled: false
+    gateway: 10.2.52.1
+    network_bridge: vmbr252
+    zone: lab.nbl.lan
+    hostname: cs-ece
+    startup_order: 7
