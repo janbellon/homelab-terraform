@@ -40,6 +40,26 @@ virtual_machines:
     hostname: peertube
     startup_order: 3
 
+  - name: nobell.fr
+    vmid: 250057
+    image: ubuntu-24.04
+    role: 9
+    tags:
+      - prod
+      - ssl
+    cores: 2
+    memory: 2048
+    disk_size: 20
+    ip: 10.2.50.57
+    ip6enabled: true
+    ip6: 2a01:e0a:5d7:a1a2:cafe::57
+    gateway: 10.2.50.1
+    gateway6: 2a01:e0a:5d7:a1a2::2
+    network_bridge: vmbr250
+    zone: srv.nbl.lan
+    hostname: www
+    startup_order: 3
+
 ## K8S PROD ##
 
   - name: p1n1
