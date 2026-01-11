@@ -18,7 +18,7 @@ virtual_machines:
     network_bridge: vmbr250
     zone: srv.nbl.lan
     hostname: acme
-    startup_order: 2
+    startup_order: 20
 
   - name: peertube
     vmid: 250056
@@ -38,7 +38,7 @@ virtual_machines:
     network_bridge: vmbr250
     zone: srv.nbl.lan
     hostname: peertube
-    startup_order: 3
+    startup_order: 50
 
   - name: nobell.fr
     vmid: 250057
@@ -58,7 +58,7 @@ virtual_machines:
     network_bridge: vmbr250
     zone: srv.nbl.lan
     hostname: www
-    startup_order: 3
+    startup_order: 50
 
 ## K8S PROD ##
 
@@ -78,7 +78,7 @@ virtual_machines:
     network_bridge: vmbr251
     zone: kube.nbl.lan
     hostname: p1n1
-    startup_order: 1
+    startup_order: 40
 
   - name: p1n2
     vmid: 251011
@@ -95,7 +95,7 @@ virtual_machines:
     network_bridge: vmbr251
     zone: kube.nbl.lan
     hostname: p1n2
-    startup_order: 1
+    startup_order: 40
 
   - name: p1n3
     vmid: 251012
@@ -112,7 +112,7 @@ virtual_machines:
     network_bridge: vmbr251
     zone: kube.nbl.lan
     hostname: p1n3
-    startup_order: 1
+    startup_order: 40
 
 ############# SANDBOX ##############
 
@@ -131,7 +131,7 @@ virtual_machines:
     network_bridge: vmbr252
     zone: lab.nbl.lan
     hostname: linux-tp-ubnt
-    startup_order: 7
+    startup_order: 100
 
   - name: cs-rapport-alternance
     vmid: 252121
@@ -150,7 +150,7 @@ virtual_machines:
     network_bridge: vmbr252
     zone: lab.nbl.lan
     hostname: cs-rapport
-    startup_order: 7
+    startup_order: 90
 
   - name: codeserver-kubernetes
     vmid: 252122
@@ -169,7 +169,7 @@ virtual_machines:
     network_bridge: vmbr252
     zone: lab.nbl.lan
     hostname: cs-kube
-    startup_order: 7
+    startup_order: 90
 
   - name: codeserver-ece
     vmid: 252123
@@ -188,7 +188,7 @@ virtual_machines:
     network_bridge: vmbr252
     zone: lab.nbl.lan
     hostname: cs-ece
-    startup_order: 7
+    startup_order: 90
 
   - name: codeserver-cv
     vmid: 252124
@@ -207,4 +207,4 @@ virtual_machines:
     network_bridge: vmbr252
     zone: lab.nbl.lan
     hostname: cs-cv
-    startup_order: 7
+    startup_order: 90

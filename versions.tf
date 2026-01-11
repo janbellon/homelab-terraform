@@ -18,16 +18,18 @@ terraform {
       version = "1.5.0"
     }
   }
-
-  backend "http" { 
-    address        = "https://gitlab.nobell.fr/api/v4/projects/2/terraform/state/nobell"
-    lock_address   = "https://gitlab.nobell.fr/api/v4/projects/2/terraform/state/nobell/lock"
-    unlock_address = "https://gitlab.nobell.fr/api/v4/projects/2/terraform/state/nobell/lock"
-    username       = "terraform"
-    lock_method    = "POST"
-    unlock_method  = "DELETE"
-    retry_wait_min = 5
-    skip_cert_verification = true
+  backend "s3" {
+    bucket     = "terraform"
+    key        = "terraform/nobell/terraform.tfstate"
+    region     = "us-east-2"
+    encrypt    = false
+    use_path_style = true
+    skip_credentials_validation = true
+    skip_requesting_account_id = true
+    skip_metadata_api_check = true
+    skip_region_validation = true
+    endpoints = {
+      s3 = "https://s3.nobell.fr"
+    }  
   }
-
 }
